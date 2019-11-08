@@ -1,18 +1,21 @@
-.login-container {
-  height: 100%;
-  margin: 0;
-  width: auto;
-  max-width: 100%;
+:host {
   display: flex;
+  height: 100%;
+  justify-content: center;
+}
+
+.login-container {
+  flex: 1 0 auto;
+  max-width: 420px;
+  min-width: 320px;
+  display: flex;
+  align-items: center;
 }
 
 .login-ower-box {
-  display: flex;
-  place-content: center;
+  flex: 0 0 auto;
+  width: 100%;
 
   .login-inner-box {
-    flex: 1 0 auto;
-    max-width: 420px;
-    min-width: 320px;
   }
 }
