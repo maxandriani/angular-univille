@@ -1,0 +1,55 @@
+<form class="form-wrapper" [formGroup]="receitaForm">
+
+  <fieldset>
+    <mat-form-field class="form-input">
+      <mat-label>Autor</mat-label>
+      <input matInput formControlName="authorId">
+    </mat-form-field>
+
+    <mat-form-field class="form-input">
+      <mat-label>Título</mat-label>
+      <input matInput formControlName="title">
+    </mat-form-field>
+
+    <mat-form-field class="form-input">
+      <mat-label>Descrição</mat-label>
+      <textarea matInput formControlName="excerpt"></textarea>
+    </mat-form-field>
+
+    <mat-form-field class="form-input">
+      <mat-label>Imagem</mat-label>
+      <input matInput formControlName="pictureUri">
+    </mat-form-field>
+
+    <mat-form-field class="form-input">
+      <mat-label>Rendimento</mat-label>
+      <input matInput formControlName="serves">
+    </mat-form-field>
+
+  </fieldset>
+
+  <button matInput (click)="addIngrediente()">Novo Ingrediente</button>
+
+  <fieldset>
+
+  <div class="ingredientes" [formGroup]="ingrediente" *ngFor="let ingrediente of getIngredientes().controls; let i = index;">
+    <mat-form-field class="form-input">
+      <mat-label>Ingrediente</mat-label>
+      <input matInput formControlName="ingredientId">
+    </mat-form-field>
+
+    <mat-form-field class="form-input">
+      <mat-label>Quantidade</mat-label>
+      <input matInput formControlName="amount">
+    </mat-form-field>
+
+    <button matInput (click)="removeIngrediente(i)">X</button>
+  </div>
+
+</fieldset>
+
+
+  <pre>{{ receitaForm.value | json }}</pre>
+
+</form>
+

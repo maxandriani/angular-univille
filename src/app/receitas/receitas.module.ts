@@ -4,9 +4,11 @@ import { MatCardModule, MatButtonModule } from '@angular/material';
 import { ReceitaFilterComponent } from './components/receita-filter/receita-filter.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
+import { ReceitaFormComponent } from './components/receita-form/receita-form.component';
 
 const PUBLIC_COMPONENTS = [
-  ReceitaFilterComponent
+  ReceitaFilterComponent,
+  ReceitaFormComponent
 ];
 
 @NgModule({
