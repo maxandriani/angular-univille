@@ -11,15 +11,15 @@ const routes: Routes = [
     component: ReceitasPageComponent
   },
   {
+    path: 'new',
+    component: ReceitaRegisterPageComponent
+  },
+  {
     path: ':id',
     component: ReceitaDetalhesPageComponent
   },
   {
     path: ':id/edit',
-    component: ReceitaRegisterPageComponent
-  },
-  {
-    path: 'new',
     component: ReceitaRegisterPageComponent
   }
 ];
