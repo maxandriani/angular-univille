@@ -1,6 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
 import { AbstractReactiveService } from 'src/app/shared/services/abstract-reactive.service';
-import { API_URI } from 'src/app/shared/tokens/api-uri.token';
 import { MatSnackBar } from '@angular/material';
 import { Observable, of } from 'rxjs';
 import { IAbpResponse } from 'src/app/shared/interfaces/i-abp-response';
@@ -12,8 +11,9 @@ import { retry, map, catchError, first, tap } from 'rxjs/operators';
 })
 export class ReceitaCurtidasApiService extends AbstractReactiveService {
 
+  /*@Inject(API_URI)*/ protected readonly apiUri: string;
+
   constructor(
-    @Inject(API_URI) protected readonly apiUri: string,
     protected readonly http: HttpClient,
     protected readonly snackbar: MatSnackBar
   ) {

@@ -1,5 +1,4 @@
 import { Injectable, Inject } from '@angular/core';
-import { API_URI } from 'src/app/shared/tokens/api-uri.token';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { AbstractReactiveService } from 'src/app/shared/services/abstract-reactive.service';
@@ -15,8 +14,9 @@ import { IIngredienteFiltro } from '../interfaces/i-ingredient-filtro';
 })
 export class IngredientApiService extends AbstractReactiveService {
 
+  /*@Inject(API_URI)*/ protected readonly apiUri: string;
+
   constructor(
-    @Inject(API_URI) protected readonly apiUri: string,
     protected readonly http: HttpClient,
     protected readonly snackbar: MatSnackBar
   ) {

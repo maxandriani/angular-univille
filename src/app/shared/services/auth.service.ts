@@ -1,6 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
 import { Observable, of, BehaviorSubject } from 'rxjs';
-import { API_URI } from '../tokens/api-uri.token';
 import { HttpClient } from '@angular/common/http';
 import { UserEntity } from '../entities/user.entity';
 import { flatMap, first, map, tap } from 'rxjs/operators';
@@ -38,8 +37,9 @@ export class AuthService {
     return (!!this.user);
   }
 
+  /* @Inject(API_URI) */ protected readonly apiUri: string;
+
   constructor(
-    @Inject(API_URI) protected readonly apiUri: string,
     protected readonly http: HttpClient,
     protected readonly snackbar: MatSnackBar
   ) {

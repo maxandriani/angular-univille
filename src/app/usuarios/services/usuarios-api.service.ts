@@ -1,6 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
 import { AbstractReactiveService } from 'src/app/shared/services/abstract-reactive.service';
-import { API_URI } from 'src/app/shared/tokens/api-uri.token';
 import { MatSnackBar } from '@angular/material';
 import { IUsuarioFiltros } from '../interfaces/i-usuario-filtros';
 import { Observable, of } from 'rxjs';
@@ -15,8 +14,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UsuariosApiService extends AbstractReactiveService {
 
+/* @Inject(API_URI) */ protected readonly apiUri: string;
+
   constructor(
-    @Inject(API_URI) protected readonly apiUri: string,
     protected readonly http: HttpClient,
     protected readonly snackbar: MatSnackBar
   ) {
