@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ReceitaDetalhesPageComponent } from './receita-detalhes-page/receita-detalhes-page.component';
 import { ReceitaRegisterPageComponent } from './receita-register-page/receita-register-page.component';
 import { ReceitasPageComponent } from './receitas-page/receitas-page.component';
+import { AuthGuard } from 'src/app/shared/guards/auth.guard';
 
 
 const routes: Routes = [
@@ -12,7 +13,10 @@ const routes: Routes = [
   },
   {
     path: 'new',
-    component: ReceitaRegisterPageComponent
+    component: ReceitaRegisterPageComponent,
+    canActivate: [
+      AuthGuard
+    ]
   },
   {
     path: ':id',
@@ -20,7 +24,10 @@ const routes: Routes = [
   },
   {
     path: ':id/edit',
-    component: ReceitaRegisterPageComponent
+    component: ReceitaRegisterPageComponent,
+    canActivate: [
+      AuthGuard
+    ]
   }
 ];
 

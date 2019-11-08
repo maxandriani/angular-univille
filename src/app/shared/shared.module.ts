@@ -15,7 +15,8 @@ const PUBLIC_COMPONENTS = [
   exports: [...PUBLIC_COMPONENTS],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    RouterModule
   ]
 })
 export class SharedModule { }
