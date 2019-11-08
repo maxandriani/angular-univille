@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="example-card" *ngFor="let recipe of recipes">
+    <mat-card>
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{recipe.title}}</mat-card-title>
+        <mat-card-subtitle>{{recipe.category}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image [src]="recipe.pictureUri" alt="Foto de um bife à parmegiana">
+      <mat-card-content>
+        <p>
+          {{recipe.excerpt}}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button (click)="redirecionarParaReceita(recipe.id)">VER RECEITA</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="page-wrapper">
+  <mat-sidenav-container class="page-drawer" fixedInViewport="true">
+    <mat-sidenav #menu mode="side">
+      <mat-action-list>
+        <button mat-list-item routerLink="/receitas">
+          <span>Receitas</span>
+        </button>
+        <button mat-list-item routerLink="/ingredientes">
+          <span>Ingredientes</span>
+        </button>
+        <button mat-list-item routerLink="/usuarios">
+          <span>Usuários</span>
+        </button>  
+      </mat-action-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar color="primary" class="header-wrapper">
+          <mat-toolbar-row>
+              <button mat-icon-button (click)="menu.toggle()">
+                  <mat-icon class="example-icon">menu</mat-icon>
+              </button>
+              <h1>Tudo Apetitoso</h1>
+              <span class="example-spacer"></span>
+          </mat-toolbar-row>
+      </mat-toolbar>
+      <div class="inner-wrapper">
+        <ng-content></ng-content>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

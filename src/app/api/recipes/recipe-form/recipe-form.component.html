@@ -1,0 +1,49 @@
+<pre>
+{{recipeForm.value | json}}
+</pre>
+<form class="form" [formGroup]="recipeForm" (submit)="enviarFormulario()">
+  <mat-form-field class="full-width">
+    <input matInput formControlName="title" type="text" placeholder="Título">
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Categoria</mat-label>
+    <mat-select formControlName="category">
+      <mat-option *ngFor="let categoria of categorias" [value]="categoria.categoria">
+        {{categoria.label}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+  <mat-form-field class="full-width">
+    <input matInput formControlName="preparationTime" type="number" placeholder="Tempo de Preparo (em minutos)">
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <input matInput formControlName="serves" type="number" placeholder="Rendimento">
+  </mat-form-field>
+
+  <div class="full-width">
+    <mat-form-field>
+      <input matInput [matAutocomplete]="auto" formControlName="ingredientes" type="text" placeholder="ingredientes">
+    </mat-form-field>
+
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let ingrediente of listaIngredientes; let i = index" [value]="i">
+        <span>{{ingrediente}}</span>
+      </mat-option>
+    </mat-autocomplete>
+    
+    <mat-form-field>
+      <input matInput formControlName="quantidadeIngredientes" type="number" placeholder="Quantidade">
+    </mat-form-field>
+
+    <button mat-button>Adicionar</button>
+  </div>
+
+  <mat-form-field class="full-width">
+    <input matInput formControlName="preparo" type="text" placeholder="Preparo"> 
+  </mat-form-field>
+
+  <button mat-raised-button type="submit">Salvar</button>
+</form>

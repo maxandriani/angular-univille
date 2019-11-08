@@ -1,0 +1,28 @@
+<tda-default-layout>
+  <h1>Receitas</h1>
+
+  <div class="box filters">
+    <tda-receita-filter (valueChange)="onFilterChange($event)"></tda-receita-filter>
+  </div>
+  
+  <div class="box receita-list">
+    <div class="receita-item" *ngFor="let receita of receitaList">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{receita.title}}</mat-card-title>
+          <mat-card-subtitle>{{receita.category}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image [src]="receita.pictureUri" alt="Imagem da receita">
+        <mat-card-content>
+          <p>
+            {{receita.excerpt}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>Ver receita</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</tda-default-layout>

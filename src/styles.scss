@@ -1,0 +1,41 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.page-wrapper {
+  .page-drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  .page-sidebar {}
+  .page-header {}
+  .content-wrapper {
+    &.container.container-fluid {
+      max-width: none;
+    }
+
+    .header {
+      .title {
+        font-weight: 300;
+        font-size: 1.8rem;
+        letter-spacing: 0;
+        color: rgb(59, 59, 59);
+        // layout
+        margin: 0;
+      }
+    }
+
+    .sticky-box {
+      border-bottom: 1px solid grey;
+      background: #fafafa;
+      // layout
+      position: sticky;
+      top: 52px;
+      z-index: 990;
+    }
+  }
+}

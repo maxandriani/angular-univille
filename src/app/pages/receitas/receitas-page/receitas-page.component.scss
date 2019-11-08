@@ -1,0 +1,25 @@
+.example-card {
+  max-width: 400px;
+}
+
+.example-header-image {
+  background-image: url('https://image.flaticon.com/icons/svg/649/649395.svg');
+  background-size: cover;
+}
+
+.receita-list {
+  display: flex;
+  flex-flow: row wrap;
+  margin: -1rem;
+  justify-content: center;
+  justify-items: center;
+
+  .receita-item {
+      min-width: 320px;
+      max-width: 420px;
+      margin: 1rem;
+      flex: 1 0;
+
+      display: flex;
+  }
+}

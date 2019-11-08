@@ -1,0 +1,23 @@
+<form class="filter-wrapper" [formGroup]="filterForm">
+
+    <mat-form-field class="filter-input">
+        <mat-label>Pesquisar</mat-label>
+        <input matInput formControlName="search">
+    </mat-form-field>
+
+    <mat-form-field class="filter-input">
+        <mat-label>Rendimento</mat-label>
+        <input matInput formControlName="serves">
+    </mat-form-field>
+
+    <mat-form-field class="filter-input">
+        <mat-label>Tempo Min.</mat-label>
+        <input type="number" matInput formControlName="minTime">
+    </mat-form-field>
+
+    <mat-form-field class="filter-input">
+        <mat-label>Tempo Máx.</mat-label>
+        <input type="number" matInput formControlName="maxTime">
+    </mat-form-field>
+
+</form>
