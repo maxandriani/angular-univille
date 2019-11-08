@@ -10,7 +10,8 @@ import {
   MatSelectModule,
   MatSnackBarModule,
   MatListModule,
-  MatCardModule
+  MatCardModule,
+  MatSlideToggleModule
 } from '@angular/material';
 
 
@@ -29,7 +30,8 @@ import {
     MatSelectModule,
     MatSnackBarModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
+    MatSlideToggleModule
   ]
 })
 export class MaterialModule { }

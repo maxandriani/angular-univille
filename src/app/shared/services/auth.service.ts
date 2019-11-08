@@ -52,6 +52,10 @@ export class AuthService {
     return this.auth$.asObservable();
   }
 
+  logout() {
+    this.token = '';
+  }
+
   async login(input: IAbpLoginInput): Promise<void> {
     try {
       const session: IAbpLoginOutput = await this.http
@@ -77,6 +81,8 @@ export class AuthService {
           map(res => res.result)
         )
         .toPromise();
+
+      this.snackbar.open(`Seja bem vindo ${user.name}!`);
 
       this.auth$.next(user);
     } catch (err) {

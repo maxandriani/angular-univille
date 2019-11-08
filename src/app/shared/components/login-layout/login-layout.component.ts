@@ -8,7 +8,7 @@ import { Component, OnInit, Input, HostBinding } from '@angular/core';
 export class LoginLayoutComponent implements OnInit {
 
   // tslint:disable-next-line:variable-name
-  protected _class: string[];
+  protected _class: string[] = [];
   @Input()
   @HostBinding('class')
   set class(css: string) {

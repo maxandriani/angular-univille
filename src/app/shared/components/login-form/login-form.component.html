@@ -1,0 +1,13 @@
+<form class="form-wrapper" [formGroup]="loginForm">
+  <mat-form-field class="form-input">
+    <mat-label>Usuário ou Email</mat-label>
+    <input matInput formControlName="userNameOrEmailAddress">
+  </mat-form-field>
+
+  <mat-form-field class="form-input">
+    <mat-label>Senha</mat-label>
+    <input type="password" matInput formControlName="password">
+  </mat-form-field>
+
+  <mat-slide-toggle class="form-input" formControlName="rememberClient">Lembrar usuário</mat-slide-toggle>
+</form>
