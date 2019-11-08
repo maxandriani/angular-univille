@@ -5,7 +5,7 @@ import { IAbpLoginInput } from '../interfaces/i-abp-login-input';
 import { IAbpLoginOutput } from '../interfaces/i-abp-login-output';
 import { HttpClient } from '@angular/common/http';
 import { IAbpResponse } from '../interfaces/i-abp-response';
-import { map, first } from 'rxjs/operators';
+import { map, first, takeUntil, filter } from 'rxjs/operators';
 import { API_URI } from '../tokens/api-uri.token';
 import { MatSnackBar } from '@angular/material';
 
@@ -36,6 +36,27 @@ export class AuthService {
 
   get authenticated(): boolean {
     return !!this.currentUser;
+  }
+
+  get authenticatedAsync(): Promise<boolean> {
+    return new Promise((resolve, reject) => {
+      if (this.token) {
+        if (this.currentUser) {
+          resolve(true);
+        } else {
+          this.asObservable()
+            .pipe(
+              filter(user => !!user),
+              first()
+            )
+            .toPromise()
+            .then(user => resolve(true))
+            .catch(err => reject(err));
+        }
+      } else {
+        resolve(false);
+      }
+    });
   }
 
   constructor(
@@ -82,7 +103,7 @@ export class AuthService {
         )
         .toPromise();
 
-      this.snackbar.open(`Seja bem vindo ${user.name}!`);
+      this.snackbar.open(`Seja bem vindo ${user.name}!`, 'Entendi');
 
       this.auth$.next(user);
     } catch (err) {

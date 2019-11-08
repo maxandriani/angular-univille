@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { MatSnackBar } from '@angular/material';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'tda-login-form',
@@ -19,7 +20,8 @@ export class LoginFormComponent implements OnInit {
   constructor(
     protected readonly fb: FormBuilder,
     protected readonly auth: AuthService,
-    protected readonly snackbar: MatSnackBar
+    protected readonly snackbar: MatSnackBar,
+    protected readonly router: Router
   ) { }
 
   ngOnInit() {
@@ -35,6 +37,8 @@ export class LoginFormComponent implements OnInit {
       this.loginForm.disable();
 
       await this.auth.login(data);
+
+      this.router.navigateByUrl('/');
     } catch (err) {
       this.snackbar.open(err.message, 'Entendi');
     } finally {
